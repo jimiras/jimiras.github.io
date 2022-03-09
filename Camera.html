@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <input type="file" accept="image/*;capture=camera"> -->
+    <title>Video</title>
+</head>
+<body>
+    <video id="video"></video>
+    <script>
+        const video = document.querySelector("#video");
+                                    
+        const constraint = {
+            audio:false, 
+            video:{
+                width: 300,
+                height: 300,
+                facingMode: "user"}
+        };
+
+        navigator.mediaDevices.getUserMedia(constraint).then((stream)=>{
+            video.srcObject=stream;
+            video.autoplay = true;
+        });
+    </script>
+</body>
+</html>
